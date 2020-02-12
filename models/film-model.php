@@ -3,8 +3,9 @@
 function getConnection(){
 	try{
        $conn = new PDO('mysql:host=localhost;dbname=u0123456', 'u0123456', '01jan96');
+			  $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	}
-	catch (PDOException $exception) 
+	catch (PDOException $exception)
 	{
 		echo "Oh no, there was a problem" . $exception->getMessage();
 	}
@@ -40,12 +41,8 @@ function saveFilm($title, $year, $duration){
 	$stmt->bindValue(':title', $title);
 	$stmt->bindValue(':year', $year);
 	$stmt->bindValue(':duration', $duration);
-	$affected_rows = $stmt->execute();
+	$stmt->execute();
 	closeConnection($conn);
-	if($affected_rows==1){
-		return true;
-	}
-	return false;
 }
 function updateFilm($id,$title,$year,$duration){
 	$conn = getConnection();
@@ -55,23 +52,15 @@ function updateFilm($id,$title,$year,$duration){
 	$stmt->bindValue(':title', $title);
 	$stmt->bindValue(':year', $year);
 	$stmt->bindValue(':duration', $duration);
-	$affected_rows = $stmt->execute();
+	$stmt->execute();
 	closeConnection($conn);
-	if($affected_rows==1){
-		return true;
-	}
-	return false;
 }
 function deleteFilm($filmId){
 	$conn = getConnection();
 	$stmt = $conn->prepare("DELETE FROM films WHERE films.id = :id");
 	$stmt->bindValue(':id',$filmId);
-	$affected_rows=$stmt->execute();
+	$stmt->execute();
 	closeConnection($conn);
-	if($affected_rows==1){
-		return true;
-	}
-	return false;
 }
 
 
