@@ -4,6 +4,10 @@ require_once "lib/validation-fncs.php";
 
 $title="";
 $titleErrMsg="";
+$year="";
+$yearErrMsg="";
+$duration="";
+$durationErrMsg="";
 
 if(isset($_POST['submitBtn'])){ //they've submitted the form
 
@@ -11,13 +15,20 @@ if(isset($_POST['submitBtn'])){ //they've submitted the form
 	$year=$_POST['year'];
 	$duration=$_POST['duration'];
 
-	
+
 	$validForm=true;
-	if(!isComplete($title)){ //call isComplete from lib/validation-fncs.php
+	if(!isComplete($title)){ // call isComplete() from lib/validation-fncs.php
 		$validForm=false;
 		$titleErrMsg="You must enter a title for the film.";
 	}
-	
+	if(!isValidYear($year)){
+		$validForm=false;
+		$yearErrMsg="You must enter a valid year for the film.";
+	}
+	if(!isInteger($duration)){
+		$validForm=false;
+		$durationErrMsg="You must enter a valid duration for the film.";
+	}
 	if($validForm){ //user input has been validated, attempt to insert into database
 		$msg="";
 		if(saveFilm($title,$year,$duration)){
@@ -32,10 +43,5 @@ if(isset($_POST['submitBtn'])){ //they've submitted the form
 }else{ //they haven't submitted the form yet
 	require "views/create-view.php";
 }
-
-
-
-
-
 
 ?>

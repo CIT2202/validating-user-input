@@ -14,11 +14,13 @@
 </div>
 <div>
 <label for="year">Year:</label>
-<input type="text" id="year" name="year">
+<input type="text" id="year" name="year" value="<?php echo $year;?>">
+<?php echo $yearErrMsg;?>
 </div>
 <div>
 <label for="duration">Duration:</label>
-<input type="text" id="duration" name="duration">
+<input type="text" id="duration" name="duration" value="<?php echo $duration;?>">
+<?php echo $durationErrMsg;?>
 </div>
 <input type="submit" name="submitBtn" value="Add Film">
 </form>
