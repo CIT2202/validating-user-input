@@ -27,11 +27,11 @@ if(isset($_POST['submitBtn'])){ //they've submitted the form
 	}
 	if(!isValidYear($year)){ // call isValidYear() from lib/validation-fncs.php
 		$validForm=false;
-		$yearErrMsg="You must enter a valid year for the film.";
+		$yearErrMsg="You must enter a valid year for the film. This must be after 1895 and not greater than next year. ";
 	}
 	if(!isInteger($duration)){ // call isInteger() from lib/validation-fncs.php
 		$validForm=false;
-		$durationErrMsg="You must enter a valid duration for the film.";
+		$durationErrMsg="You must enter a number for the duration for the film.";
 	}
 
 	if(isset($_POST["certificate"])) //certificate is a radio button
