@@ -25,4 +25,8 @@ Have a good look at the code to try and understand what is happening.
   * Make sure you display suitable error messages.
 
 2. Using a text field for entering the certificate isn't very robust. Replace the certificate text field with a series of radio buttons so that the user can't enter an invalid certificate.
-    * To re-populate the form you will need to use the *checked* property of radio button.
+    * To re-populate the form you will need to use the *checked* property of radio button e.g.
+
+    ```html
+      <label for="PG"><input type="radio" name="certificate" id="PG" value="2" <?php if($certId === "2") { echo "checked";} ?>>PG</label>
+    ```
