@@ -11,6 +11,7 @@ if(isset($_POST['submitBtn'])){ //they've submitted the form
 	$title=$_POST['title'];
 	$year=$_POST['year'];
 	$duration=$_POST['duration'];
+	$certId=$_POST['certificate'];
 
 
 	$validForm=true;

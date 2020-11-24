@@ -6,11 +6,12 @@
 </head>
 <body>
 <h1>Add a new film</h1>
-<form action="save.php" method="post">
-<div>
-<label for="title">Title:</label>
-<input type="text" id="title" name="title">
-</div>
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+  <div>
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="<?php echo $title;?>">
+  <?php echo $titleErrMsg;?>
+  </div>
 <div>
 <label for="year">Year:</label>
 <input type="text" id="year" name="year">
