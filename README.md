@@ -36,18 +36,18 @@ Have a good look at the code to try and understand what is happening.
 $errors = [];
 
 if(!isComplete($title)){ //call isComplete from lib/validation-fncs.php
-		$errors["title"] = "You must enter a title for the film.";
+   $errors["title"] = "You must enter a title for the film.";
 }
 ```
 Checking if we have any errors becomes easy:
 
 ```php
 if(empty($errors){ //user input has been validated, attempt to insert into database
-		$msg="";
-		if(saveFilm($title,$year,$duration,$certId)){
-		    $msg="Successfully added the details for {$title}";
-		}else{
-		    $msg="There was a problem inserting the data.";
-		}
+   $msg="";
+   if(saveFilm($title,$year,$duration,$certId)){
+       $msg="Successfully added the details for {$title}";
+   }else{
+       $msg="There was a problem inserting the data.";
+   }
 ...
 ```
