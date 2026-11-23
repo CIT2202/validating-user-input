@@ -30,3 +30,13 @@ Have a good look at the code to try and understand what is happening.
     ```html
       <label for="PG"><input type="radio" name="certificate" id="PG" value="2" <?php if($certId === "2") { echo "checked";} ?>>PG</label>
     ```
+3. Having separate variables for each field in the form isn't very efficient, especially if we have long forms. Can you use arrays to store the error messages e.g.
+
+```php
+$errors = [];
+
+if(!isComplete($title)){ //call isComplete from lib/validation-fncs.php
+		$validForm = false;
+		$errors["title"] = "You must enter a title for the film.";
+}
+```
