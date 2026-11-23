@@ -1,7 +1,7 @@
 <?php
 // Controller
-include "models/film-model.php";
-include "lib/validation-fncs.php";
+require "models/film-model.php";
+require "lib/validation-fncs.php";
 
 $title="";
 $titleErrMsg="";
@@ -27,12 +27,12 @@ if(isset($_POST['submitBtn'])){ //they've submitted the form
 		}else{
 		    $msg="There was a problem inserting the data.";
 		}
-		include "views/save-view.php";
+		require "views/save-view.php";
 	}else{ //user input is invalid, show the form again
-		include "views/create-view.php";
+		require "views/create-view.php";
 	}
 }else{ //they haven't submitted the form yet
-	include "views/create-view.php";
+	require "views/create-view.php";
 }
 
 
