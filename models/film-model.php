@@ -2,7 +2,7 @@
 // Model
 function getConnection(){
 	try{
-       $conn = new PDO('mysql:host=localhost;dbname=cit2202', 'cit2202', 'letmein');
+       $conn = new PDO('mysql:host=db;dbname=webdev', 'student', 'secret');
 			 $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	}
 	catch (PDOException $exception)
