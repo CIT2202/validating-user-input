@@ -1,4 +1,14 @@
 # Validating User Input
+
+- Open your existing codespace (you shouldn't create a new one) [https://github.com/codespaces](https://github.com/codespaces).
+- In the terminal enter
+
+```
+git clone https://github.com/CIT2202/validating-user-input
+```
+
+This will copy the contents of this repository into your codespace.
+
 This repository contains a simple create MVC example. It is very similar to an example we looked at previously. It inserts a film into the films table.
 
 There are a number of key differences to the example we have looked at previously
